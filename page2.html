@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Seeker Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color:salmon;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            color: #fff;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .option {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard Menu</h2>
+        <a href="#">Home</a>
+        <a href="joblistings.html">View Job Listings</a>
+        <a href="profile.html">My Profile</a>
+        <a href="savedjobs.html">Saved Jobs</a>
+        <a href="logout.html" onclick="logout()">Logout</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">contact us </h2>
+        <img src="wp.jpeg" alt="WhatsApp" height="40" width="40"> <!-- Height only -->
+
+    <a href="#"></a></div>
+    
+
+
+     </div>
+     
+    <div class="main">
+        <div class="header">
+            <h1>Welcome to Your platform</h1>
+            <p>You are logged in as <span id="usernameDisplay"></span>.</p>
+        </div>
+
+        <h2>Your Options:</h2>
+        <div class="options">
+            <div class="option">
+                <img src="joblistening.jpeg" alt="Job Listings">
+                <p><a href="joblistings.html">View Job Listings</a></p>
+            </div>
+            <div class="option">
+                <img src="profile.jpg" alt="Update Profile">
+                <p><a href="profile.html">Update Profile</a></p>
+            </div>
+            <div class="option">
+                <img src="savedjobs.jpg" alt="Saved Jobs">
+                <p><a href="savedjobs.html">Saved Jobs</a></p>
+            </div>
+            <div class="option">
+                <img src="settings-icon.png" alt="Settings">
+                <p><a href="settings.html">Settings</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate retrieving username from session or storage
+        const username = 'user'; // This should be dynamically set
+        document.getElementById('usernameDisplay').innerText = username;
+
+        function logout() {
+            alert('You have logged out.');
+            // Redirect to login page or clear session
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
