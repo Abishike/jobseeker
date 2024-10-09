@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin: 20px 0;
+            color: #555;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Logout Successful</h1>
+        <p>You have been successfully logged out.</p>
+        <a href="login.html"><button id="homeButton">Go to Home</button></a>
+    </div>
+
+    <script>
+        document.getElementById('homeButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Replace with your homepage or login page
+        });
+
+        // Optional: Add functionality to clear session data or cookies here
+        function clearSession() {
+            // Example: localStorage.clear(); // Uncomment to clear local storage
+        }
+
+        clearSession(); // Call the function on logout
+    </script>
+</body>
+</html>
