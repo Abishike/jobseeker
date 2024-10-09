@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Jobs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            width: calc(100% - 250px);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .job-list {
+            margin: 20px 0;
+        }
+
+        .job-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .job-description {
+            margin: 5px 0;
+        }
+
+        .remove-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-button:hover {
+            background: #c0392b;
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard Menu</h2>
+        <a href="joblistings.html">View Job Listings</a>
+        <a href="profile.html">My Profile</a>
+        <a href="savedjobs.html">Saved Jobs</a>
+        <a href="settings.html">Settings</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Saved Jobs</h1>
+        </header>
+
+        <div class="job-list" id="jobList">
+            <!-- Saved job items will be populated here by JavaScript -->
+        </div>
+
+        <button id="clearAllButton">Clear All Saved Jobs</button>
+    </div>
+
+    <script>
+        const savedJobs = [
+            {
+                title: "Software Engineer",
+                description: "Develop and maintain software applications.",
+                company: "Tech Corp"
+            },
+            {
+                title: "Data Analyst",
+                description: "Analyze data to help inform business decisions.",
+                company: "Data Solutions"
+            },
+            {
+                title: "Product Manager",
+                description: "Lead product development and strategy.",
+                company: "Innovate Inc."
+            }
+        ];
+
+        function displaySavedJobs() {
+            const jobList = document.getElementById('jobList');
+            jobList.innerHTML = ''; // Clear existing jobs
+
+            savedJobs.forEach((job, index) => {
+                const jobItem = document.createElement('div');
+                jobItem.classList.add('job-item');
+
+                jobItem.innerHTML = `
+                    <h2 class="job-title">${job.title}</h2>
+                    <p class="job-description">${job.description}</p>
+                    <p><strong>Company:</strong> ${job.company}</p>
+                    <button class="remove-button" onclick="removeJob(${index})">Remove</button>
+                `;
+
+                jobList.appendChild(jobItem);
+            });
+        }
+
+        function removeJob(index) {
+            savedJobs.splice(index, 1); // Remove job from array
+            displaySavedJobs(); // Refresh the job list
+        }
+
+        document.getElementById('clearAllButton').addEventListener('click', function() {
+            savedJobs.length = 0; // Clear all saved jobs
+            displaySavedJobs(); // Refresh the job list
+        });
+
+        // Initial display of saved jobs
+        displaySavedJobs();
+
+        function logout() {
+            alert("Logging out...");
+            // Add your logout functionality here
+        }
+    </script>
+</body>
+</html>
